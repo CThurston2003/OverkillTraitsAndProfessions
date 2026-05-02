@@ -5,7 +5,6 @@ OTAP = OTAP or {}
 --Character Traits
 
 OTAP.CharacterTrait = {
-    Example         = CharacterTrait.register("otap:example"),
     Kleptomania     = CharacterTrait.register("otap:kleptomania"),
     Pyromania       = CharacterTrait.register("otap:pyromania"),
     Sanguinarian    = CharacterTrait.register("otap:sanguinarian"),
