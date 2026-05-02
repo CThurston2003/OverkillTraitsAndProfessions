@@ -44,7 +44,6 @@ OTAP.CharacterTrait = {
     Ombrophobia     = CharacterTrait.register("otap:ombrophobia"),
     Cannibal        = CharacterTrait.register("otap:cannibal"),
     Alcoholic       = CharacterTrait.register("otap:alcoholic"),
-    God             = CharacterTrait.register("otap:god"),
     Vegan           = CharacterTrait.register("otap:vegan"),
     Carnivore       = CharacterTrait.register("otap:carnivore"),
 }
