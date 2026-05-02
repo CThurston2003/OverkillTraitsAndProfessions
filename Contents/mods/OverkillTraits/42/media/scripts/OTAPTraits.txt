@@ -1,16 +1,4 @@
 module OTAP {
-    character_trait_definition otap:example{
-        CharacterTrait          = otap:example,
-        UIName                  = Example,
-        Cost                    = 12,
-        UIDescription           = Example mod only left in as a baseplate,
-        IsProfessionTrait       = false,
-        DisabledInMultiplayer   = false,
-        GrantedRecipes          = MakeSawPlank,
-        GrantedTraits           = base:smoker,
-        XPBoosts                = Aiming=1;Reloading=1,
-        MutuallyExclusiveTraits = base:clumsy;base:deaf,
-    }
     character_trait_definition otap:kleptomania{
         CharacterTrait          = otap:kleptomania,
         UIName                  = Kleptomania,
