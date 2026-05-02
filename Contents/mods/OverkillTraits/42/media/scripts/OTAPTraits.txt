@@ -455,18 +455,6 @@ module OTAP {
         XPBoosts                = ,
         MutuallyExclusiveTraits = ,
     }
-    character_trait_definition otap:infinite_points{
-        CharacterTrait          = otap:infinite_points,
-        UIName                  = Infinite Points,
-        Cost                    = -999,
-        UIDescription           = Testing trait to give free points,
-        IsProfessionTrait       = false,
-        DisabledInMultiplayer   = false,
-        GrantedRecipes          = ,
-        GrantedTraits           = ,
-        XPBoosts                = ,
-        MutuallyExclusiveTraits = ,
-    }
     character_trait_definition otap:vegan{
         CharacterTrait          = otap:vegan,
         UIName                  = Vegan,
