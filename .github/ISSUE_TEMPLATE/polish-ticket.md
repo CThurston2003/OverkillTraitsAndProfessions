@@ -11,3 +11,4 @@ assignees: CThurston2003
 - [ ] Finalize description
 - [ ] Determine final cost
 - [ ] Testing for balance
+- [ ] Check code for any places to refactor/clean up
