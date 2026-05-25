@@ -48,10 +48,11 @@ OTAP.CharacterTrait = {
     God             = CharacterTrait.register("otap:god"),
     Vegan           = CharacterTrait.register("otap:vegan"),
     Carnivore       = CharacterTrait.register("otap:carnivore"),
+    Nyctophilia     = CharacterTrait.register("otap:nyctophilia"),
 }
 
 -- Character Professions
 
-OTAP.CharacterProfession = {
+-- OTAP.CharacterProfession = {
     
-}
+-- }
