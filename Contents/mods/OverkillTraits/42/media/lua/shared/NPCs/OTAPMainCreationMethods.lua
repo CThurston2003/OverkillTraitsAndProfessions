@@ -51,3 +51,45 @@ OTAPBaseGameCharacterDetails.MaxPanic = function()
     
 end
 Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.MaxPanic);
+
+------------ Astraphobia ------------
+OTAPBaseGameCharacterDetails.Astraphobia = function(x,y,strike,lightning,rumble)
+    local player = getPlayer();
+
+    if not player then
+        return;
+    end
+
+    if(player:hasTrait(OTAP.CharacterTrait.Astraphobia)) then
+        local xProx = math.abs(x - player:getX());
+        local yProx = math.abs(y - player:getY());
+
+        local lightningLevels = {
+        [1] = function (x)
+            player:getStats():add(CharacterStat.PANIC, 50);
+            syncPlayerStats(player, 0x00000100);
+            print("Thunder Event 111111!");
+        end,
+        [2] = function (x)
+            player:getStats():add(CharacterStat.PANIC, 33);
+            syncPlayerStats(player, 0x00000100);
+            print("Thunder Event 2222222!");
+        end,
+        [3] = function (x)
+            player:getStats():add(CharacterStat.PANIC, 15);
+            syncPlayerStats(player, 0x00000100);
+            print("Thunder Event 33333333!");
+        end
+        }
+
+        if((xProx <= 1000 and yProx <= 1000) and (lightning == true and rumble == true)) 
+            then lightningLevels[1]();
+        elseif((xProx <= 3000 and yProx <= 1500) and (lightning == true and rumble == true))
+            then lightningLevels[2]();
+        elseif((xProx <= 6000 and yProx <= 3000) and (lightning == true and rumble == true))
+            then lightningLevels[3]();
+        end
+    end
+end
+
+Events.OnThunderEvent.Add(OTAPBaseGameCharacterDetails.Astraphobia);
