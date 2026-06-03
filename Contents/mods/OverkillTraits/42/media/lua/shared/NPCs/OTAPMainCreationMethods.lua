@@ -93,3 +93,45 @@ OTAPBaseGameCharacterDetails.Astraphobia = function(x,y,strike,lightning,rumble)
 end
 
 Events.OnThunderEvent.Add(OTAPBaseGameCharacterDetails.Astraphobia);
+
+------------ Nyctophilia ------------
+OTAPBaseGameCharacterDetails.Nyctophilia = function()
+
+    local player = getPlayer();
+    local square = player:getSquare();
+    local lightLevel = forageSystem.getLightLevelPenalty(player, square, true);
+
+    if not player then return; end;
+    -- print("Light Level: " .. tostring(lightLevel));
+
+    if player:hasTrait(OTAP.CharacterTrait.Nyctophilia) then
+        -- Lookup tables for the different happiness levels
+        local happinessLevels = {
+            [1] = function (x) 
+                player:getStats():remove(CharacterStat.UNHAPPINESS, 8);
+                player:getStats():remove(CharacterStat.PANIC, 4);
+                syncPlayerStats(player, 0x00000100);
+            end,
+            [2] = function (x) 
+                player:getStats():remove(CharacterStat.UNHAPPINESS, 12);
+                player:getStats():remove(CharacterStat.PANIC, 6);
+                syncPlayerStats(player, 0x00000100);
+            end,
+            [3] = function (x) 
+                player:getStats():remove(CharacterStat.UNHAPPINESS, 18);
+                player:getStats():remove(CharacterStat.PANIC, 9);
+                syncPlayerStats(player, 0x00000100);
+            end,
+        }
+        -- Acting on lookup table
+        if (lightLevel < 0.5 and lightLevel >= 0.3) 
+            then happinessLevels[1]();
+        elseif (lightLevel < 0.3 and lightLevel >= 0.2) 
+            then happinessLevels[2]();
+        elseif (lightLevel < 0.2 and lightLevel >= 0) 
+            then happinessLevels[3](); 
+        end
+    end
+    
+end
+Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophilia);
