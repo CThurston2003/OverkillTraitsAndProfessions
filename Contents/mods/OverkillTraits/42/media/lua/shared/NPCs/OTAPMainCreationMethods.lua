@@ -14,7 +14,7 @@ end
 Events.OnCreatePlayer.Add(OTAPBaseGameCharacterDetails.NewCharacterInit);
 
 ------------ Nyctophobia ------------
-OTAPBaseGameCharacterDetails.MaxPanic = function()
+OTAPBaseGameCharacterDetails.Nyctophobia = function()
 
     local player = getPlayer();
     local square = player:getSquare();
@@ -50,7 +50,7 @@ OTAPBaseGameCharacterDetails.MaxPanic = function()
     end
     
 end
-Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.MaxPanic);
+Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophobia);
 
 ------------ Astraphobia ------------
 OTAPBaseGameCharacterDetails.Astraphobia = function(x,y,strike,lightning,rumble)
