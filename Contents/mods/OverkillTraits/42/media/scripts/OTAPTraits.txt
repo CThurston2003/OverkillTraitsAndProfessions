@@ -506,8 +506,8 @@ module OTAP {
     character_trait_definition otap:nyctophilia{
         CharacterTrait          = otap:nyctophilia,
         UIName                  = Nyctophilia,
-        Cost                    = 12,
-        UIDescription           = Reduce panic when in pitch darkness,
+        Cost                    = 9,
+        UIDescription           = Calms down and enjoys the darkness,
         IsProfessionTrait       = false,
         DisabledInMultiplayer   = false,
         GrantedRecipes          = ,
