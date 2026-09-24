@@ -266,8 +266,8 @@ module OTAP {
     character_trait_definition otap:nyctophobia{
         CharacterTrait          = otap:nyctophobia,
         UIName                  = Nyctophobia,
-        Cost                    = -12,
-        UIDescription           = Gain panic in darkness,
+        Cost                    = -5,
+        UIDescription           = Gets panicked in dark spaces,
         IsProfessionTrait       = false,
         DisabledInMultiplayer   = false,
         GrantedRecipes          = ,
