@@ -102,7 +102,6 @@ OTAPBaseGameCharacterDetails.Nyctophilia = function()
     local lightLevel = forageSystem.getLightLevelPenalty(player, square, true);
 
     if not player then return; end;
-    -- print("Light Level: " .. tostring(lightLevel));
 
     if player:hasTrait(OTAP.CharacterTrait.Nyctophilia) then
         -- Lookup tables for the different happiness levels
