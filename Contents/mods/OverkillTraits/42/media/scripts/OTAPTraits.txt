@@ -362,8 +362,8 @@ module OTAP {
     character_trait_definition otap:astraphobia{
         CharacterTrait          = otap:astraphobia,
         UIName                  = Astraphobia,
-        Cost                    = -12,
-        UIDescription           = Panic increases during thunderstorm,
+        Cost                    = -3,
+        UIDescription           = Gets panicked from thunderstorms,
         IsProfessionTrait       = false,
         DisabledInMultiplayer   = false,
         GrantedRecipes          = ,
