@@ -68,17 +68,14 @@ OTAPBaseGameCharacterDetails.Astraphobia = function(x,y,strike,lightning,rumble)
         [1] = function (x)
             player:getStats():add(CharacterStat.PANIC, 50);
             syncPlayerStats(player, 0x00000100);
-            print("Thunder Event 111111!");
         end,
         [2] = function (x)
             player:getStats():add(CharacterStat.PANIC, 33);
             syncPlayerStats(player, 0x00000100);
-            print("Thunder Event 2222222!");
         end,
         [3] = function (x)
             player:getStats():add(CharacterStat.PANIC, 15);
             syncPlayerStats(player, 0x00000100);
-            print("Thunder Event 33333333!");
         end
         }
 
