@@ -1,7 +1,5 @@
 OTAPBaseGameCharacterDetails = {}
 
--- require "Items/SpawnItems";
-
 OTAPBaseGameCharacterDetails.NewCharacterInit = function(playerNum, character)
     local player = getSpecificPlayer(playerNum); -- playerNum is like a player ID?
 
@@ -21,7 +19,6 @@ OTAPBaseGameCharacterDetails.Nyctophobia = function()
     local lightLevel = forageSystem.getLightLevelPenalty(player, square, true);
 
     if not player then return; end;
-    -- print("Light Level: " .. tostring(lightLevel));
 
     if player:hasTrait(OTAP.CharacterTrait.Nyctophobia) then
         -- Lookup tables for the different panic levels
@@ -68,17 +65,14 @@ OTAPBaseGameCharacterDetails.Astraphobia = function(x,y,strike,lightning,rumble)
         [1] = function (x)
             player:getStats():add(CharacterStat.PANIC, 50);
             syncPlayerStats(player, 0x00000100);
-            print("Thunder Event 111111!");
         end,
         [2] = function (x)
             player:getStats():add(CharacterStat.PANIC, 33);
             syncPlayerStats(player, 0x00000100);
-            print("Thunder Event 2222222!");
         end,
         [3] = function (x)
             player:getStats():add(CharacterStat.PANIC, 15);
             syncPlayerStats(player, 0x00000100);
-            print("Thunder Event 33333333!");
         end
         }
 
