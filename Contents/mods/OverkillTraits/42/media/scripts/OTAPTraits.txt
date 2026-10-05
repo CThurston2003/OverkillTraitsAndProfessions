@@ -519,7 +519,7 @@ module OTAP {
         CharacterTrait          = otap:god,
         UIName                  = God,
         Cost                    = -1,
-        UIDescription           = God trait to max out stats for testing purposes,
+        UIDescription           = God trait to max out stats for testing purposes left in for fun,
         IsProfessionTrait       = false,
         DisabledInMultiplayer   = false,
         GrantedRecipes          = ,
