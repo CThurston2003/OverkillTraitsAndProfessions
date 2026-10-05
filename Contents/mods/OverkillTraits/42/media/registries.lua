@@ -1,9 +1,7 @@
 OTAP = OTAP or {}
---OTAP.CharacterTrait = {}
 
 
 --Character Traits
-
 OTAP.CharacterTrait = {
     Kleptomania     = CharacterTrait.register("otap:kleptomania"),
     Pyromania       = CharacterTrait.register("otap:pyromania"),
