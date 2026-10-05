@@ -1,7 +1,5 @@
 OTAPBaseGameCharacterDetails = {}
 
--- require "Items/SpawnItems";
-
 OTAPBaseGameCharacterDetails.NewCharacterInit = function(playerNum, character)
     local player = getSpecificPlayer(playerNum); -- playerNum is like a player ID?
 
@@ -21,7 +19,6 @@ OTAPBaseGameCharacterDetails.Nyctophobia = function()
     local lightLevel = forageSystem.getLightLevelPenalty(player, square, true);
 
     if not player then return; end;
-    -- print("Light Level: " .. tostring(lightLevel));
 
     if player:hasTrait(OTAP.CharacterTrait.Nyctophobia) then
         -- Lookup tables for the different panic levels
