@@ -1,0 +1,14 @@
+{
+  "features": {
+    "ghcr.io/devcontainers/features/node:2.1.1": {
+      "version": "2.1.1",
+      "resolved": "ghcr.io/devcontainers/features/node@sha256:2a19d3b0b3879437637cfd292eb29fee0afcfbe6364e33db9afc4f80c5c1f956",
+      "integrity": "sha256:2a19d3b0b3879437637cfd292eb29fee0afcfbe6364e33db9afc4f80c5c1f956"
+    },
+    "ghcr.io/prulloac/devcontainer-features/lua:1": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/prulloac/devcontainer-features/lua@sha256:716e06160055b24c1a4730146d8ce6b096b24a23d92aa8ba5dd4b3464225bcad",
+      "integrity": "sha256:716e06160055b24c1a4730146d8ce6b096b24a23d92aa8ba5dd4b3464225bcad"
+    }
+  }
+}
