@@ -1,0 +1,19 @@
+name: Style Check
+"on": [push, pull_request]
+jobs:
+  luacheck:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Luacheck linter
+        uses: lunarmodules/luacheck@v1
+      
+      - name: Stylua Formatter
+        uses: JohnnyMorganz/stylua-action@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --check .
