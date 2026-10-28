@@ -1,0 +1,54 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Project Zomboid Modding",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:resolute",
+	
+	"features": {
+		"ghcr.io/prulloac/devcontainer-features/lua:1": {},
+		"ghcr.io/devcontainers/features/node:2.1.1": {
+			"version": "lts",
+      		"nodeGypDependencies": true
+		},
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"sumneko.lua",
+				"satoren.lualint",
+				"cyberbobjr.pz-syntax-extension",
+				"JohnnyMorganz.stylua"
+			],
+			"settings": {
+				"[lua]": {
+					"editor.defaultFormatter": "JohnnyMorganz.stylua",
+					"editor.formatOnSave": true
+				},
+				"Lua.runtime.version": "Lua 5.1",
+				"Lua.diagnostics.enable": true,
+				"lualint.useLuacheck": true,
+				"lua.diagnostics.globals": [
+					"SandboxVars",
+					"ZomboidGlobals",
+					"getPlayer",
+					"getSpecificPlayer",
+					"getCore",
+					"getGameTime",
+					"getClimateManager",
+					"getSoundManager",
+					"Events",
+					"ISPanel",
+					"ISUIElement",
+					"BaseAction"
+				]
+			}
+		}
+	},
+
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y lua5.1 luarocks && sudo luarocks install luacheck",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}
