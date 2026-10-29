@@ -1,130 +1,129 @@
 OTAPBaseGameCharacterDetails = {}
 
-OTAPBaseGameCharacterDetails.NewCharacterInit = function(playerNum, character)
-    local player = getSpecificPlayer(playerNum); -- playerNum is like a player ID?
+OTAPBaseGameCharacterDetails.NewCharacterInit = function(playerNum)
+    local player = getSpecificPlayer(playerNum) -- playerNum is like a player ID?
 
     if player:hasTrait(OTAP.CharacterTrait.God) then
         player:getInventory():AddItem("Base.Pistol")
     end
-
 end
 
-Events.OnCreatePlayer.Add(OTAPBaseGameCharacterDetails.NewCharacterInit);
+Events.OnCreatePlayer.Add(OTAPBaseGameCharacterDetails.NewCharacterInit)
 
 ------------ Nyctophobia ------------
 OTAPBaseGameCharacterDetails.Nyctophobia = function()
+    local player = getPlayer()
+    local square = player:getSquare()
+    local lightLevel = forageSystem.getLightLevelPenalty(player, square, true)
 
-    local player = getPlayer();
-    local square = player:getSquare();
-    local lightLevel = forageSystem.getLightLevelPenalty(player, square, true);
-
-    if not player then return; end;
+    if not player then
+        return
+    end
 
     if player:hasTrait(OTAP.CharacterTrait.Nyctophobia) then
         -- Lookup tables for the different panic levels
         local panicLevels = {
-            [1] = function (x) 
+            [1] = function()
                 player:getStats():add(CharacterStat.PANIC, 8)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [2] = function (x) 
+            [2] = function()
                 player:getStats():add(CharacterStat.PANIC, 12)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [3] = function (x) 
+            [3] = function()
                 player:getStats():add(CharacterStat.PANIC, 18)
                 syncPlayerStats(player, 0x00000100)
             end,
         }
         -- Acting on lookup table
-        if (lightLevel < 0.5 and lightLevel >= 0.3) 
-            then panicLevels[1]();
-        elseif (lightLevel < 0.3 and lightLevel >= 0.2) 
-            then panicLevels[2]();
-        elseif (lightLevel < 0.2 and lightLevel >= 0) 
-            then panicLevels[3](); 
+        if lightLevel < 0.5 and lightLevel >= 0.3 then
+            panicLevels[1]()
+        elseif lightLevel < 0.3 and lightLevel >= 0.2 then
+            panicLevels[2]()
+        elseif lightLevel < 0.2 and lightLevel >= 0 then
+            panicLevels[3]()
         end
     end
-    
 end
-Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophobia);
+Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophobia)
 
 ------------ Astraphobia ------------
-OTAPBaseGameCharacterDetails.Astraphobia = function(x,y,strike,lightning,rumble)
-    local player = getPlayer();
+OTAPBaseGameCharacterDetails.Astraphobia = function(x, y, lightning, rumble)
+    local player = getPlayer()
 
     if not player then
-        return;
+        return
     end
 
-    if(player:hasTrait(OTAP.CharacterTrait.Astraphobia)) then
-        local xProx = math.abs(x - player:getX());
-        local yProx = math.abs(y - player:getY());
+    if player:hasTrait(OTAP.CharacterTrait.Astraphobia) then
+        local xProx = math.abs(x - player:getX())
+        local yProx = math.abs(y - player:getY())
 
         local lightningLevels = {
-        [1] = function (x)
-            player:getStats():add(CharacterStat.PANIC, 50);
-            syncPlayerStats(player, 0x00000100);
-        end,
-        [2] = function (x)
-            player:getStats():add(CharacterStat.PANIC, 33);
-            syncPlayerStats(player, 0x00000100);
-        end,
-        [3] = function (x)
-            player:getStats():add(CharacterStat.PANIC, 15);
-            syncPlayerStats(player, 0x00000100);
-        end
+            [1] = function()
+                player:getStats():add(CharacterStat.PANIC, 50)
+                syncPlayerStats(player, 0x00000100)
+            end,
+            [2] = function()
+                player:getStats():add(CharacterStat.PANIC, 33)
+                syncPlayerStats(player, 0x00000100)
+            end,
+            [3] = function()
+                player:getStats():add(CharacterStat.PANIC, 15)
+                syncPlayerStats(player, 0x00000100)
+            end,
         }
 
-        if((xProx <= 1000 and yProx <= 1000) and (lightning == true and rumble == true)) 
-            then lightningLevels[1]();
-        elseif((xProx <= 3000 and yProx <= 1500) and (lightning == true and rumble == true))
-            then lightningLevels[2]();
-        elseif((xProx <= 6000 and yProx <= 3000) and (lightning == true and rumble == true))
-            then lightningLevels[3]();
+        if (xProx <= 1000 and yProx <= 1000) and (lightning == true and rumble == true) then
+            lightningLevels[1]()
+        elseif (xProx <= 3000 and yProx <= 1500) and (lightning == true and rumble == true) then
+            lightningLevels[2]()
+        elseif (xProx <= 6000 and yProx <= 3000) and (lightning == true and rumble == true) then
+            lightningLevels[3]()
         end
     end
 end
 
-Events.OnThunderEvent.Add(OTAPBaseGameCharacterDetails.Astraphobia);
+Events.OnThunderEvent.Add(OTAPBaseGameCharacterDetails.Astraphobia)
 
 ------------ Nyctophilia ------------
 OTAPBaseGameCharacterDetails.Nyctophilia = function()
+    local player = getPlayer()
+    local square = player:getSquare()
+    local lightLevel = forageSystem.getLightLevelPenalty(player, square, true)
 
-    local player = getPlayer();
-    local square = player:getSquare();
-    local lightLevel = forageSystem.getLightLevelPenalty(player, square, true);
-
-    if not player then return; end;
+    if not player then
+        return
+    end
 
     if player:hasTrait(OTAP.CharacterTrait.Nyctophilia) then
         -- Lookup tables for the different happiness levels
         local happinessLevels = {
-            [1] = function (x) 
-                player:getStats():remove(CharacterStat.UNHAPPINESS, 8);
-                player:getStats():remove(CharacterStat.PANIC, 4);
-                syncPlayerStats(player, 0x00000100);
+            [1] = function()
+                player:getStats():remove(CharacterStat.UNHAPPINESS, 8)
+                player:getStats():remove(CharacterStat.PANIC, 4)
+                syncPlayerStats(player, 0x00000100)
             end,
-            [2] = function (x) 
-                player:getStats():remove(CharacterStat.UNHAPPINESS, 12);
-                player:getStats():remove(CharacterStat.PANIC, 6);
-                syncPlayerStats(player, 0x00000100);
+            [2] = function()
+                player:getStats():remove(CharacterStat.UNHAPPINESS, 12)
+                player:getStats():remove(CharacterStat.PANIC, 6)
+                syncPlayerStats(player, 0x00000100)
             end,
-            [3] = function (x) 
-                player:getStats():remove(CharacterStat.UNHAPPINESS, 18);
-                player:getStats():remove(CharacterStat.PANIC, 9);
-                syncPlayerStats(player, 0x00000100);
+            [3] = function()
+                player:getStats():remove(CharacterStat.UNHAPPINESS, 18)
+                player:getStats():remove(CharacterStat.PANIC, 9)
+                syncPlayerStats(player, 0x00000100)
             end,
         }
         -- Acting on lookup table
-        if (lightLevel < 0.5 and lightLevel >= 0.3) 
-            then happinessLevels[1]();
-        elseif (lightLevel < 0.3 and lightLevel >= 0.2) 
-            then happinessLevels[2]();
-        elseif (lightLevel < 0.2 and lightLevel >= 0) 
-            then happinessLevels[3](); 
+        if lightLevel < 0.5 and lightLevel >= 0.3 then
+            happinessLevels[1]()
+        elseif lightLevel < 0.3 and lightLevel >= 0.2 then
+            happinessLevels[2]()
+        elseif lightLevel < 0.2 and lightLevel >= 0 then
+            happinessLevels[3]()
         end
     end
-    
 end
-Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophilia);
+Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophilia)
