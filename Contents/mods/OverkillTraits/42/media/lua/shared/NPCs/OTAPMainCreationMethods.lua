@@ -1,6 +1,6 @@
 OTAPBaseGameCharacterDetails = {}
 
-OTAPBaseGameCharacterDetails.NewCharacterInit = function(playerNum, character)
+OTAPBaseGameCharacterDetails.NewCharacterInit = function(playerNum)
     local player = getSpecificPlayer(playerNum) -- playerNum is like a player ID?
 
     if player:hasTrait(OTAP.CharacterTrait.God) then
@@ -23,15 +23,15 @@ OTAPBaseGameCharacterDetails.Nyctophobia = function()
     if player:hasTrait(OTAP.CharacterTrait.Nyctophobia) then
         -- Lookup tables for the different panic levels
         local panicLevels = {
-            [1] = function(x)
+            [1] = function()
                 player:getStats():add(CharacterStat.PANIC, 8)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [2] = function(x)
+            [2] = function()
                 player:getStats():add(CharacterStat.PANIC, 12)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [3] = function(x)
+            [3] = function()
                 player:getStats():add(CharacterStat.PANIC, 18)
                 syncPlayerStats(player, 0x00000100)
             end,
@@ -49,7 +49,7 @@ end
 Events.EveryOneMinute.Add(OTAPBaseGameCharacterDetails.Nyctophobia)
 
 ------------ Astraphobia ------------
-OTAPBaseGameCharacterDetails.Astraphobia = function(x, y, strike, lightning, rumble)
+OTAPBaseGameCharacterDetails.Astraphobia = function(x, y, lightning, rumble)
     local player = getPlayer()
 
     if not player then
@@ -61,15 +61,15 @@ OTAPBaseGameCharacterDetails.Astraphobia = function(x, y, strike, lightning, rum
         local yProx = math.abs(y - player:getY())
 
         local lightningLevels = {
-            [1] = function(x)
+            [1] = function()
                 player:getStats():add(CharacterStat.PANIC, 50)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [2] = function(x)
+            [2] = function()
                 player:getStats():add(CharacterStat.PANIC, 33)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [3] = function(x)
+            [3] = function()
                 player:getStats():add(CharacterStat.PANIC, 15)
                 syncPlayerStats(player, 0x00000100)
             end,
@@ -100,17 +100,17 @@ OTAPBaseGameCharacterDetails.Nyctophilia = function()
     if player:hasTrait(OTAP.CharacterTrait.Nyctophilia) then
         -- Lookup tables for the different happiness levels
         local happinessLevels = {
-            [1] = function(x)
+            [1] = function()
                 player:getStats():remove(CharacterStat.UNHAPPINESS, 8)
                 player:getStats():remove(CharacterStat.PANIC, 4)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [2] = function(x)
+            [2] = function()
                 player:getStats():remove(CharacterStat.UNHAPPINESS, 12)
                 player:getStats():remove(CharacterStat.PANIC, 6)
                 syncPlayerStats(player, 0x00000100)
             end,
-            [3] = function(x)
+            [3] = function()
                 player:getStats():remove(CharacterStat.UNHAPPINESS, 18)
                 player:getStats():remove(CharacterStat.PANIC, 9)
                 syncPlayerStats(player, 0x00000100)
