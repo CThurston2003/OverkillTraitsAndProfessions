@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.1.1](https://github.com/CThurston2003/OverkillTraitsAndProfessions/releases/tag/v0.1.1) - 2026-11-15
+
+- [`baa4e39`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/baa4e3923f94486e5aca177cb46eb2662f444d03) fix: fix missing uplift publish workflow
+
 ## [v0.1.0](https://github.com/CThurston2003/OverkillTraitsAndProfessions/releases/tag/v0.1.0) - 2026-11-15
 
 - [`04c9769`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/04c976946e8d3af06a467c843eb213543190ae0c) fix: fix `uplift` workflow permissions error
