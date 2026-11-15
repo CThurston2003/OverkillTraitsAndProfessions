@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.1.2](https://github.com/CThurston2003/OverkillTraitsAndProfessions/releases/tag/v0.1.2) - 2026-11-15
+
+- [`276d588`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/276d58831b70915d1939e59297ebcc749dd1d029) fix: fix rate limit uplift by pinning specific uplift version
+
 ## [v0.1.1](https://github.com/CThurston2003/OverkillTraitsAndProfessions/releases/tag/v0.1.1) - 2026-11-15
 
 - [`baa4e39`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/baa4e3923f94486e5aca177cb46eb2662f444d03) fix: fix missing uplift publish workflow
