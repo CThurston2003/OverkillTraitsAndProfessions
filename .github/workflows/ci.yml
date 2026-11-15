@@ -20,6 +20,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: gembaadvantage/uplift-action@v2
         with:
+          version: v2.21.0
           args: release
         env:
           GITHUB_TOKEN: ${{ secrets.UPLIFT_TOKEN }}
