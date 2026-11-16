@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.1.3](https://github.com/CThurston2003/OverkillTraitsAndProfessions/releases/tag/v0.1.3) - 2026-11-15
+
+- [`9045a8b`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/9045a8b907caf0d2a3681d0f14618123a6e9d6d9) chore: update `README` to better represent the repository
+- [`c7e7c8a`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/c7e7c8a8b488b5d3bb093d0186ddd0f19d393cf7) fix: fix broken attributes on `God` testing trait
+
 ## [v0.1.2](https://github.com/CThurston2003/OverkillTraitsAndProfessions/releases/tag/v0.1.2) - 2026-11-15
 
 - [`276d588`](https://github.com/CThurston2003/OverkillTraitsAndProfessions/commit/276d58831b70915d1939e59297ebcc749dd1d029) fix: fix rate limit uplift by pinning specific uplift version
